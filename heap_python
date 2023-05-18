@@ -1,0 +1,49 @@
+def heapify(arr,n,i):
+    largest = i
+    l = 2*i + 1
+    r = 2*i + 2
+
+if (l < n and arr[l] > arr[largest]):
+    largest = l
+if (r < n and arr[r] > arr[largest]):
+    largest = r
+
+if largest != i:
+    arr[i],arr[largest] = arr[largest],arr[i]
+    heapify(arr,n,largest)
+
+
+def delete_root(arr):
+    global n
+    last_ele = arr[n-1]
+    arr[0] = last_ele
+    n = n-1
+    heapify(arr,n,0)
+    arr.pop()
+
+def print_arr(arr):
+    for i in range(len(arr)):
+        print(arr[i],end = " ")
+
+def insert(arr,val):
+    global n
+    n = n+1
+    arr.append(val)
+    heapify(arr,n,n-1)
+
+start = time.time()
+arr = [ 10, 5, 3, 2, 4 ]
+n = len(arr)
+delete_root(arr)
+print("\nSorted array after deletion: ", arr)
+print_arr(arr)
+insert(arr,6)
+print("\nSorted array after insertion: ", arr)
+print_arr(arr)
+end = time.time()
+# print()
+
+x = sys.getsizeof(arr)
+print("\nSize in bytes by array: ", x)
+# print("\nSorted array: ", data)
+print("\nExecution Time: ", end - start)
