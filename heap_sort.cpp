@@ -51,11 +51,13 @@ int main() {
         cout << arr[i] << " ";
     }
     cout << endl;
-    
+
     end = clock();
-    double time_taken = double (end -
-    start)/double(CLOCKS_PER_SEC);
-    cout << "\nTime taken is : " << time_taken;
+    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+    cout << "\nTime taken is: " << time_taken << " seconds" << endl;
+
+    int bytes = sizeof(arr[0]) * n;
+    cout << "Bytes occupied: " << bytes << endl;
 
     return 0;
 }
